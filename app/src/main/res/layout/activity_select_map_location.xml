@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,3 +17,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SelectMapLocation" />
+
+    <EditText
+        android:id="@+id/search_location"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border"
+        android:hint="Select Location" />
+
+    <Button
+        android:id="@+id/select_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_centerInParent="true"
+        android:text="SELECT LOCATION" />
+
+</RelativeLayout>
