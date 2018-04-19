@@ -1,12 +1,10 @@
 package com.dastagirireddy.zipprtest;
 
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,8 +29,7 @@ public class SelectMapLocation extends FragmentActivity implements OnMapReadyCal
     }
 
 
-    public void onSearch(View view)
-    {
+    public void onSearch(View view) {
 
     }
 
@@ -51,8 +48,23 @@ public class SelectMapLocation extends FragmentActivity implements OnMapReadyCal
 
         // Add a marker in Sydney and move the camera
         // LatLng sydney = new LatLng(-34, 151);
+        LatLng ll = new LatLng(0,0);
         mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
 
+        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(ll, 11.0f);
+        mMap.animateCamera(yourLocation);
+
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         mMap.setMyLocationEnabled(true);
     }
 }
